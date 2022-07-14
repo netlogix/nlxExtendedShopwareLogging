@@ -1,0 +1,46 @@
+{
+    "name": "netlogix/nlxextendedshopwarelogging",
+    "description": "This plugin extends the shopware 5 standard logging",
+    "type": "shopware-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "netlogix GmbH & Co. KG",
+            "email": "websolutions@netlogix.de"
+        }
+    ],
+    "extra": {
+        "installer-name": "nlxExtendedShopwareLogging"
+    },
+    "autoload": {
+        "psr-4": {
+            "nlxExtendedShopwareLogging\\": "."
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "spec\\nlxExtendedShopwareLogging\\": "./spec"
+        }
+    },
+    "require": {
+        "php": "^7.3||^8.0"
+    },
+    "require-dev": {
+        "shopware/shopware": "^5.6",
+        "solutiondrive/standalone-build-tools": "^2.0",
+        "solutiondrive/sd-test-environment-shopware": "^0.3"
+    },
+    "conflict": {
+        "shopware/shopware": "<5.6"
+    },
+    "config": {
+        "sort-packages": true,
+        "standalone-build-tools": {
+          "phpspec-standalone.php7.4.phar": "http://build-tools.cloud.solutiondrive.de/phar/phpspec-standalone.php7.4.phar",
+          "phpspec-standalone.php7.3.phar": "http://build-tools.cloud.solutiondrive.de/phar/phpspec-standalone.php7.3.phar",
+          "phpspec-standalone.php7.2.phar": "http://build-tools.cloud.solutiondrive.de/phar/phpspec-standalone.php7.2.phar",
+          "ecs-standalone.phar": "http://build-tools.cloud.solutiondrive.de/phar/coding-standard-standalone.ecs.php7.3.phar",
+          "easy-coding-standard.yml": "http://build-tools.cloud.solutiondrive.de/phar/easy-coding-standard-php7.3.yml"
+        }
+    }
+}
