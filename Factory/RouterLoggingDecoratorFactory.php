@@ -17,14 +17,19 @@ use Shopware\Components\Routing\RouterInterface;
 
 class RouterLoggingDecoratorFactory extends Router
 {
+    /**
+     * @param string[] $matchers
+     * @param string[] $generators
+     * @param string[] $preFilters
+     * @param string[] $postFilters
+     */
     public function factory(
         EnlightEventManager $eventManager,
         iterable $matchers,
         iterable $generators,
         iterable $preFilters,
         iterable $postFilters
-    ): RouterInterface
-    {
+    ): RouterInterface {
         $router = new RouterLoggingDecorator(
             Context::createEmpty(),
             $this->convertIteratorToArray($matchers),
@@ -48,12 +53,17 @@ class RouterLoggingDecoratorFactory extends Router
         return $router;
     }
 
+    /**
+     * @param string[] $iterator
+     *
+     * @return string[]
+     */
     private function convertIteratorToArray(iterable $iterator): array
     {
         if (\is_array($iterator)) {
             return $iterator;
         }
 
-        return iterator_to_array($iterator, false);
+        return \iterator_to_array($iterator, false);
     }
 }

@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace nlxExtendedShopwareLogging\Components;
 
-use nlxExtendedShopwareLogging\Service\ConfigService;
 use nlxExtendedShopwareLogging\Services\LoggerService;
 use Shopware\Components\Routing\Context;
 use Shopware\Components\Routing\Router;
@@ -24,6 +23,9 @@ class RouterLoggingDecorator extends Router
         $this->logger = $logger;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function assemble($userParams = [], Context $context = null)
     {
         $assembledLink = parent::assemble($userParams, $context);
