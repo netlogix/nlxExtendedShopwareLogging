@@ -4,14 +4,6 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-
-        <service
-                id="nlx.extended_shopware_logging.service.logger"
-                class="nlxExtendedShopwareLogging\Services\LoggerService"
-        >
-            <argument type="service" id="nlx_extended_shopware_logging.logger"/>
-        </service>
-
         <service id="nlx.extended_shopware_logging.components.rewrite_matcher_logging"
                  class="nlxExtendedShopwareLogging\Components\RewriteMatcherLoggingDecorator"
                  decorates="shopware.routing.matchers.rewrite_matcher"

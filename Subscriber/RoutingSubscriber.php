@@ -69,7 +69,7 @@ class RoutingSubscriber implements SubscriberInterface
 
         $current = $request->getScheme() . '://' . $request->getHttpHost() . $request->getRequestUri();
         if ($location !== $current) {
-            $this->logger->log('Shopware interna Redirect: 301', [
+            $this->logger->basic('Shopware interna Redirect: 301', [
                 'from' => $current,
                 'to'   => $location,
             ]);
@@ -88,7 +88,7 @@ class RoutingSubscriber implements SubscriberInterface
             $this->logRedirect($router, $request, $response);
         }
 
-        $this->logger->log(\sprintf('%s: %s', $logTitle, $response->getHttpResponseCode()), [
+        $this->logger->basic(\sprintf('%s: %s', $logTitle, $response->getHttpResponseCode()), [
             'request' => [
                 'url' => $request->getUri(),
                 'controller' => $request->getControllerName(),
