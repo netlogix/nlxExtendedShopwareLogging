@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <service
+                id="nlx.extended_shopware_logging.service.logger"
+                class="nlxExtendedShopwareLogging\Services\LoggerService"
+        >
+            <argument type="service" id="nlx_extended_shopware_logging.logger"/>
+        </service>
+
+        <service id="nlx.extended_shopware_logging.components.rewrite_matcher_logging"
+                 class="nlxExtendedShopwareLogging\Components\RewriteMatcherLoggingDecorator"
+                 decorates="shopware.routing.matchers.rewrite_matcher"
+        >
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+            <argument type="service" id="Shopware\Components\QueryAliasMapper"/>
+            <argument type="service" id="Shopware_Components_Config"/>
+            <call method="setLogger">
+                <argument type="service" id="nlx.extended_shopware_logging.service.logger"/>
+            </call>
+            <tag name="router.matcher" priority="50"/>
+        </service>
+
+        <service
+                id="nlx.extended_shopware_logging.subscriber.routing"
+                class="nlxExtendedShopwareLogging\Subscriber\RoutingSubscriber"
+        >
+            <argument type="service" id="nlx.extended_shopware_logging.service.logger"/>
+            <tag name="shopware.event_subscriber"/>
+        </service>
+        <service
+                id="nlx.extended_shopware_logging.components.router_logging"
+                class="nlxExtendedShopwareLogging\Components\RouterLoggingDecorator"
+                decorates="router"
+        >
+            <factory service="router_factory" method="factory"/>
+            <argument type="service" id="events"/>
+            <argument type="tagged" tag="router.matcher"/>
+            <argument type="tagged" tag="router.generator"/>
+            <argument type="tagged" tag="router.pre_filter"/>
+            <argument type="tagged" tag="router.post_filter"/>
+            <call method="setLogger">
+                <argument type="service" id="nlx.extended_shopware_logging.service.logger"/>
+            </call>
+        </service>
+        <service
+                id="nlx.extended_shopware_logging.components.default_router_logging"
+                class="nlxExtendedShopwareLogging\Components\RouterLoggingDecorator"
+                decorates="default_router"
+        >
+            <factory service="router_factory" method="factory"/>
+            <argument type="service" id="events"/>
+            <argument type="tagged" tag="router.matcher"/>
+            <argument type="collection">
+                <argument key="default" type="service" id="shopware.routing.generators.default_generator"/>
+            </argument>
+            <argument type="tagged" tag="router.pre_filter"/>
+            <argument type="tagged" tag="router.post_filter"/>
+            <call method="setLogger">
+                <argument type="service" id="nlx.extended_shopware_logging.service.logger"/>
+            </call>
+        </service>
+
+        <service
+                id="nlx.extended_shopware_logging.factory.router_logging"
+                class="nlxExtendedShopwareLogging\Factory\RouterLoggingDecoratorFactory"
+                decorates="router_factory"
+        >
+        </service>
+    </services>
+</container>
