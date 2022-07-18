@@ -30,7 +30,7 @@ class RouterLoggingDecorator extends Router
     {
         $assembledLink = parent::assemble($userParams, $context);
 
-        $this->logger->log('Router assemble', [
+        $this->logger->debug('Router assemble', [
             'userParams' => $userParams,
             'assembledLink' => $assembledLink,
             'context' => empty($context) ? $context : $context->jsonSerialize(),

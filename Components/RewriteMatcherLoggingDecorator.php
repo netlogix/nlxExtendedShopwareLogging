@@ -30,7 +30,7 @@ class RewriteMatcherLoggingDecorator extends RewriteMatcher
     {
         $pathInfo = parent::match($seoPathInfo, $context);
 
-        $this->logger->log('SEO table access', [
+        $this->logger->debug('SEO table access', [
             'incomingSeoUrl' => $seoPathInfo,
             'resolvedPathInfo' => $pathInfo,
         ]);
