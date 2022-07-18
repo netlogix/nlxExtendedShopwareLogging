@@ -3,7 +3,7 @@
         xsi:noNamespaceSchemaLocation="../../../engine/Shopware/Components/Plugin/schema/plugin.xsd">
     <label lang="de">nlxExtendedShopwareLogging</label>
     <label lang="en">nlxExtendedShopwareLogging</label>
-    <version>1.0.1</version>
+    <version>1.1.0</version>
     <copyright>(c) by netlogix GmbH &amp; Co. KG</copyright>
     <license>Proprietary</license>
     <link>https://websolutions.netlogix.de/</link>
@@ -25,5 +25,9 @@
     <changelog version="1.0.1">
         <changes lang="de">Informationen über das Shopware internem Routing werden jetzt für Problembehebungen gesammelt</changes>
         <changes lang="en">Added logging for the shopware internal routing</changes>
+    </changelog>
+    <changelog version="1.1.0">
+        <changes lang="de">Feature basiertes Logging und Logging für Shopware Cronjobs hinzugefügt.</changes>
+        <changes lang="en">Added feature based logging and logging for cronjobs.</changes>
     </changelog>
 </plugin>
