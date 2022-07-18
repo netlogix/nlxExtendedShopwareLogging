@@ -16,7 +16,7 @@
         Plugin for collecting additional information to ease bugfix development.
     </description>
 
-    <compatibility minVersion="5.6.8" />
+    <compatibility minVersion="5.6.0" />
 
     <changelog version="1.0.0">
         <changes lang="de">Erste Veröffentlichung</changes>
