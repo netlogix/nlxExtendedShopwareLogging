@@ -4,8 +4,8 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="nlx.extended_shopware_logging.components.rewrite_matcher_logging"
-                 class="nlxExtendedShopwareLogging\Components\RewriteMatcherLoggingDecorator"
+        <service id="nlx.extended_shopware_logging.components.cron_manager_logger"
+                 class="nlxExtendedShopwareLogging\Components\CronManagerDecorator"
                  decorates="cron"
         >
             <argument type="service" id="cron_adapter"/>
