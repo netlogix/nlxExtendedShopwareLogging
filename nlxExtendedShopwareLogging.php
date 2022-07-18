@@ -31,7 +31,7 @@ class nlxExtendedShopwareLogging extends Plugin
             return;
         }
 
-        $componentsXmlDir = __DIR__ . '/Resources/Services/Components/';
+        $componentsXmlDir = __DIR__ . '/Resources/Components/';
         $loader = new XmlFileLoader($container, new FileLocator($componentsXmlDir));
         foreach ($loggingFeatures as $loggingFeature) {
             if (file_exists($componentsXmlDir . $loggingFeature . '.xml')) {
