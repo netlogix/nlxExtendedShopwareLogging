@@ -69,7 +69,7 @@ class RoutingSubscriber implements SubscriberInterface
 
         $current = $request->getScheme() . '://' . $request->getHttpHost() . $request->getRequestUri();
         if ($location !== $current) {
-            $this->logger->basic('Shopware interna Redirect: 301', [
+            $this->logger->basic('Shopware internal Redirect: 301', [
                 'from' => $current,
                 'to'   => $location,
             ]);
