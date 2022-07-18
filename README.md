@@ -21,16 +21,24 @@ Available features are:
 
     NLX_LOG_FEATURES=cron,routing
 
-
 ### NLX_LOG_LEVEL
-`NLX_LOG_LEVEL` is the log level of the used features.
+`NLX_LOG_LEVEL` is the log level of the used features. Log level can be upper or lowercase.
 
 Available log levels are:
 
-- basic
-- info
-- debug
+- EMERGENCY
+- ALERT
+- CRITICAL
+- ERROR
+- WARNING
+- NOTICE
+- INFO
+- DEBUG
 
 #### Example
+
+    NLX_LOG_LEVEL=INFO
+
+Or
 
     NLX_LOG_LEVEL=info

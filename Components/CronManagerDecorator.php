@@ -38,7 +38,7 @@ class CronManagerDecorator extends Enlight_Components_Cron_Manager
      */
     public function runJob(Enlight_Components_Cron_Job $job)
     {
-        $this->logger->basic(\sprintf('[cron] started cron: %s', $job->getName()), [
+        $this->logger->notice(\sprintf('[cron] started cron: %s', $job->getName()), [
             'startDate' => $job->getStart(),
             'endDate'   => $job->getEnd(),
             'nextDate'  => $job->getNext(),
@@ -52,7 +52,7 @@ class CronManagerDecorator extends Enlight_Components_Cron_Manager
      */
     public function endJob(Enlight_Components_Cron_Job $job)
     {
-        $this->logger->basic(\sprintf('[cron] cron finished: %s', $job->getName()), [
+        $this->logger->notice(\sprintf('[cron] cron finished: %s', $job->getName()), [
             'startDate' => $job->getStart(),
             'endDate'   => $job->getEnd(),
             'nextDate'  => $job->getNext(),

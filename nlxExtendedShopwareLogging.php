@@ -48,8 +48,8 @@ class nlxExtendedShopwareLogging extends Plugin
     private function initLogLevelParameter(ContainerBuilder $container)
     {
         $envLogLevel = \getenv(self::LOGGING_LEVEL_KEY);
-        if (empty($envLogLevel) || in_array($envLogLevel, array_keys(LoggerService::NLX_LOG_LEVELS)) === false) {
-            $envLogLevel = LoggerService::NLX_LOG_LEVEL_BASIC;
+        if (empty($envLogLevel) || in_array(strtoupper($envLogLevel), array_keys(LoggerService::NLX_LOG_LEVELS)) === false) {
+            $envLogLevel = LoggerService::NLX_LOG_LEVEL_NOTICE;
         }
         $container->setParameter('nlx.extended_shopware_logging.parameters.log_level', $envLogLevel);
     }
