@@ -26,7 +26,12 @@ class nlxExtendedShopwareLogging extends Plugin
 
         $this->initLogLevelParameter($container);
 
-        $loggingFeatures = explode(',', \getenv(self::LOGGING_FEATURES_KEY));
+        $loggingFeaturesString = \getenv(self::LOGGING_FEATURES_KEY);
+        if (empty($loggingFeaturesString)) {
+            return;
+        }
+
+        $loggingFeatures = explode(',', $loggingFeaturesString);
         if (empty($loggingFeatures)) {
             return;
         }
