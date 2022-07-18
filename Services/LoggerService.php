@@ -37,16 +37,25 @@ class LoggerService
         $this->currentLogLevel = self::NLX_LOG_LEVELS[$currentLogLevel];
     }
 
+    /**
+     * @param string[] $context
+     */
     public function basic(string $message, array $context = []): void
     {
         $this->log(self::NLX_LOG_LEVEL_BASIC, $message, $context);
     }
 
+    /**
+     * @param string[] $context
+     */
     public function info(string $message, array $context = []): void
     {
         $this->log(self::NLX_LOG_LEVEL_INFO, $message, $context);
     }
 
+    /**
+     * @param string[] $context
+     */
     public function debug(string $message, array $context = []): void
     {
         $this->log(self::NLX_LOG_LEVEL_DEBUG, $message, $context);
@@ -60,6 +69,6 @@ class LoggerService
         if (self::NLX_LOG_LEVELS[$level] < $this->currentLogLevel) {
             return;
         }
-        $this->logger->log(self::SHOPWARE_LOG_LEVEL, sprintf('[nlxLogging][%s]: ', $level) . $message, $context);
+        $this->logger->log(self::SHOPWARE_LOG_LEVEL, \sprintf('[nlxLogging][%s]: ', $level) . $message, $context);
     }
 }

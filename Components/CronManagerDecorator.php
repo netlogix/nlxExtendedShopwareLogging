@@ -20,18 +20,13 @@ class CronManagerDecorator extends Enlight_Components_Cron_Manager
     /** @var LoggerService */
     protected $logger;
 
-    /**
-     * @param string $eventArgsClass
-     */
     public function __construct(
         Enlight_Components_Cron_Adapter $adapter,
-        Enlight_Event_EventManager      $eventManager,
-                                        $eventArgsClass = null
-    )
-    {
+        Enlight_Event_EventManager $eventManager,
+        string $eventArgsClass = null
+    ) {
         parent::__construct($adapter, $eventManager, $eventArgsClass);
     }
-
 
     public function setLogger(LoggerService $logger): void
     {
@@ -43,7 +38,7 @@ class CronManagerDecorator extends Enlight_Components_Cron_Manager
      */
     public function runJob(Enlight_Components_Cron_Job $job)
     {
-        $this->logger->basic(sprintf('[cron] started cron: %s', $job->getName()), [
+        $this->logger->basic(\sprintf('[cron] started cron: %s', $job->getName()), [
             'startDate' => $job->getStart(),
             'endDate'   => $job->getEnd(),
             'nextDate'  => $job->getNext(),
@@ -57,7 +52,7 @@ class CronManagerDecorator extends Enlight_Components_Cron_Manager
      */
     public function endJob(Enlight_Components_Cron_Job $job)
     {
-        $this->logger->basic(sprintf('[cron] cron finished: %s', $job->getName()), [
+        $this->logger->basic(\sprintf('[cron] cron finished: %s', $job->getName()), [
             'startDate' => $job->getStart(),
             'endDate'   => $job->getEnd(),
             'nextDate'  => $job->getNext(),
