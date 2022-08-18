@@ -44,7 +44,7 @@ class LoggerService implements LoggerInterface
     public function __construct(LoggerInterface $logger, string $currentLogLevel)
     {
         $this->logger = $logger;
-        $this->currentLogLevel = self::NLX_LOG_LEVELS[$currentLogLevel];
+        $this->currentLogLevel = self::NLX_LOG_LEVELS[\strtoupper($currentLogLevel)];
     }
 
     /**
