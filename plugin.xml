@@ -3,7 +3,7 @@
         xsi:noNamespaceSchemaLocation="../../../engine/Shopware/Components/Plugin/schema/plugin.xsd">
     <label lang="de">nlxExtendedShopwareLogging</label>
     <label lang="en">nlxExtendedShopwareLogging</label>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
     <copyright>(c) by netlogix GmbH &amp; Co. KG</copyright>
     <license>Proprietary</license>
     <link>https://websolutions.netlogix.de/</link>
@@ -29,5 +29,9 @@
     <changelog version="1.1.0">
         <changes lang="de">Feature basiertes Logging und Logging für Shopware Cronjobs hinzugefügt.</changes>
         <changes lang="en">Added feature based logging and logging for cronjobs.</changes>
+    </changelog>
+    <changelog version="1.1.1">
+        <changes lang="de">Bugfix, um sicherzustellen, dass Log-Level in lower- und uppercase definiert werden können.</changes>
+        <changes lang="en">Bugfix to ensure that log levels can be defined in lower- and uppercase.</changes>
     </changelog>
 </plugin>
