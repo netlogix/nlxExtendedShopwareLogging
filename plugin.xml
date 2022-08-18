@@ -3,7 +3,7 @@
         xsi:noNamespaceSchemaLocation="../../../engine/Shopware/Components/Plugin/schema/plugin.xsd">
     <label lang="de">nlxExtendedShopwareLogging</label>
     <label lang="en">nlxExtendedShopwareLogging</label>
-    <version>1.1.1</version>
+    <version>1.1.2</version>
     <copyright>(c) by netlogix GmbH &amp; Co. KG</copyright>
     <license>Proprietary</license>
     <link>https://websolutions.netlogix.de/</link>
@@ -33,5 +33,9 @@
     <changelog version="1.1.1">
         <changes lang="de">Bugfix, um sicherzustellen, dass Log-Level in lower- und uppercase definiert werden können.</changes>
         <changes lang="en">Bugfix to ensure that log levels can be defined in lower- and uppercase.</changes>
+    </changelog>
+    <changelog version="1.1.2">
+        <changes lang="de">Bugfix, um sicherzustellen, das Log-Level korrekt über die service.xml gesetzt wird.</changes>
+        <changes lang="en">Bugfix to ensure that log level is set correctly via service.xml.</changes>
     </changelog>
 </plugin>

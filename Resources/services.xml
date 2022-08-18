@@ -9,9 +9,7 @@
                 class="nlxExtendedShopwareLogging\Services\LoggerService"
         >
             <argument type="service" id="nlx_extended_shopware_logging.logger"/>
-            <argument type="string">
-                %nlx.extended_shopware_logging.parameters.log_level%
-            </argument>
+            <argument type="string">%nlx.extended_shopware_logging.parameters.log_level%</argument>
         </service>
     </services>
 </container>
